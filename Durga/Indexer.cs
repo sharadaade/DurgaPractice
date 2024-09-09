@@ -8,5 +8,9 @@ namespace Durga
 {
     internal class Indexer
     {
+        static void Main(string[] args)
+        {
+            
+        }
     }
 }
