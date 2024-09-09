@@ -38,17 +38,58 @@ using System.Threading.Tasks;
 
 namespace Durga
 {
+    public delegate void Calculator(int a, int b);
+    class MyClaa
+    {
+        public void Add(int a, int b)
+        {
+            Console.WriteLine("Result : " + (a + b));
+        }
+        public void Sub(int a, int b)
+        {
+            Console.WriteLine("Result : " + (a - b));
+        }
+        public void Mul(int a, int b)
+        {
+            Console.WriteLine("Result : " + (a * b));
+        }
+        public void Div(int a, int b)
+        {
+            Console.WriteLine("Result : " + (a / b));
+        }
+    }
     internal class TheDelegates
     {
+        
         static void Main(string[] args)
         {
-            int a = 100;
-            unsafe
-            {
-                int* x = &a;
-                Console.WriteLine("Value of a is :" + *x);
-                Console.WriteLine("address of a is : " + (int)x);
-            }
+            //Pointer
+            //int a = 100;
+
+            //unsafe
+            //{
+            //    int* x = &a;
+            //    Console.WriteLine("Value of a is :" + *x);
+            //    Console.WriteLine("address of a is : " + (int)x);
+            //}
+
+            MyClaa obj = new MyClaa();
+
+            Calculator ob = new Calculator(obj.Add);
+            ob += obj.Sub;
+            ob += obj.Mul;
+            ob += obj.Div;
+
+            //Invoking Delegate
+            ob(20, 10);
+
+            // Remove 
+            ob -= obj.Add;
+            ob -= obj.Sub;
+            
+            // Again Invoking Delegate
+            ob(22, 2);
+
         }
     }
 }
