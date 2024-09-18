@@ -41,6 +41,17 @@ namespace Durga
                 Console.WriteLine(items);
             }
 
+            Console.WriteLine("----------------------------------");
+
+            Stack<int> stk = new Stack<int>();
+            stk.Push(55);
+            stk.Push('Z');
+
+            foreach(var item in stk)
+            {
+                Console.WriteLine(item);
+            }
+
         }
     }
 }
